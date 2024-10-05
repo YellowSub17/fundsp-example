@@ -138,7 +138,7 @@ fn create_sample_with_reverb() -> Box<dyn AudioUnit64> {
         Arc::new(Wave64::load("samples/closed_high_hat.wav").expect("Could not find sample file."));
     let left = wave64(&wave, 0, None);
     let right = wave64(&wave, 1, None);
-    let synth = (left | right) >> (multipass() & (0.2 * reverb_stereo(10.0, 3.0)));
+    let synth = (left | right) >> (multipass() & (1.0 * reverb_stereo(10.0, 3.0)));
 
     Box::new(synth)
 }
